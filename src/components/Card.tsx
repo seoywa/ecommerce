@@ -49,7 +49,7 @@ const Card = ({
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-      <div className="py-4">
+      <div className="p-4">
         <div className="mb-1 flex items-baseline justify-between gap-3">
           <h3 className="text-heading-3 text-dark-900">{title}</h3>
 
@@ -76,7 +76,7 @@ const Card = ({
     <Link
       href={href}
       aria-label={title}
-      className="block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[--color-dark-500]"
+      className="block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-dark-500"
     >
       {content}
     </Link>
