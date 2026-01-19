@@ -10,19 +10,23 @@ export const categories = pgTable(
     slug: text("slug").notNull().unique(),
     parentId: uuid("parent_id"),
   },
-(t) => ({
-  parentFk: foreignKey({
-    columns: [t.parentId],
-    foreignColumns: [t.id],
-  }).onDelete('set null'),
-}));
+  (t) => [
+    foreignKey({
+      columns: [t.parentId],
+      foreignColumns: [t.id],
+    }).onDelete("set null"),
+  ]
+);
 
 export const categoriesRelations = relations(categories, ({ many, one }) => ({
   parent: one(categories, {
     fields: [categories.parentId],
     references: [categories.id],
+    relationName: "parentCategory",
   }),
-  children: many(categories),
+  children: many(categories, {
+    relationName: "childCategories",
+  }),
 }));
 
 export const insertCategorySchema = z.object({

@@ -21,6 +21,8 @@ const Navbar = () => {
           />
         </Link>
 
+        <h1 className="text-heading-3">Nike</h1>
+
         <ul className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
